@@ -23,9 +23,12 @@
 </script>
 {{- else if eq $comment.type "disqus" }}
 <script>
+    if (window.location.hostname == "localhost") {
+        return;
+    } else {
     var disqus_config = function () {
         this.page.url = '{{- .Permalink }}';
-        this.page.identifier = '{{- $comment.disqus }}';
+        this.page.identifier = '{{- .Permalink }}';
     };
     (function () {
         var d = document, s = d.createElement('script');
@@ -33,7 +36,9 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
+}
 </script>
+<script id="dsq-count-scr" src="//{{- $comment.disqus }}.disqus.com/count.js" async></script>
 {{- else if eq $comment.type "gitalk" }}
 <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
