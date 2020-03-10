@@ -13,10 +13,19 @@
   buymeacoffee.setAttribute('data-y_margin','10');
 
   buymeacoffee.onload = setTimeout(function() {
-    document.getElementById('bmc-wbtn').style.display = 'none';
+    var element = document.getElementById('bmc-wbtn')
+    var sibling = element.nextSibling;
+
+    element.style.display = 'none';
+
     setTimeout(function() {
-      document.getElementById('bmc-wbtn').style.display = 'flex';
-    }, 30000);
+      sibling.style.display = 'none';
+    }, 3000, sibling);
+
+    setTimeout(function() {
+      element.style.display = 'flex';
+      sibling.style.display = 'block';
+    }, 30000, element, sibling);
   }, 1000);
   document.getElementsByTagName('head')[0].appendChild(buymeacoffee);
 })()
