@@ -23,7 +23,7 @@
   {{- with $config.skin }}
     {{- $.Scratch.Add "bodyClass" . }}
   {{- end}}
-  {{- if eq .Site.Params.sidebar "none"}} 
+  {{- if eq .Site.Params.sidebar "none"}}
     {{- $.Scratch.Add "bodyClass" "no-sidebar" }}
   {{- end }}
 
@@ -46,5 +46,6 @@
     {{ block "content" . }}{{ end }}
     {{- partial "footer.html" . }}
     {{- partial "script.html" . }}
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
   </body>
 </html>
