@@ -1,4 +1,14 @@
 <!-- Analytics -->
 {{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
   {{ template "_internal/google_analytics_async.html" . }}
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-8919037-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-8919037-7');
+  </script>
 {{- end -}}
