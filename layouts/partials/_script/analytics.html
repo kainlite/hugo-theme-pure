@@ -1,7 +1,5 @@
 <!-- Analytics -->
 {{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
-  {{ template "_internal/google_analytics_async.html" . }}
-
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-502GDPBW28"></script>
   <script>
@@ -11,5 +9,4 @@
 
     gtag('config', 'G-502GDPBW28');
   </script>
-
 {{- end -}}
